@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url("https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1470&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+    }
+
+    .home-overlay {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 60px 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        max-width: 800px;
+        margin: 100px auto;
+    }
+</style>
+
+<div class="container">
+    <div class="home-overlay text-center">
+        <h1 class="display-5 fw-bold text-primary">🎓 Student Management System</h1>
+        <p class="lead mt-3 mb-4">
+            Manage student records easily — add, edit, view, and delete with just a few clicks.
+        </p>
+
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+            <a href="{% url 'student_list' %}" class="btn btn-outline-primary btn-lg px-4">
+                📋 View Students
+            </a>
+            <a href="{% url 'add_student' %}" class="btn btn-primary btn-lg px-4">
+                ➕ Add Student
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

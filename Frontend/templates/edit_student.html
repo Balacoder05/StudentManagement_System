@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">✏️ Edit Student Details</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="form-floating mb-3">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="{{ student.name }}" required>
+                            <label for="name">Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="{{ student.email }}" required>
+                            <label for="email">Email</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone" value="{{ student.phone }}" required>
+                            <label for="phone">Phone</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" name="course" id="course" class="form-control" placeholder="Course" value="{{ student.course }}" required>
+                            <label for="course">Course</label>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <input type="date" name="date_joined" id="date_joined" class="form-control" placeholder="Date Joined" value="{{ student.date_joined|date:'Y-m-d' }}" required>
+                            <label for="date_joined">Date Joined</label>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success px-4 me-2">💾 Update</button>
+                            <a href="{% url 'student_list' %}" class="btn btn-outline-secondary px-4">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    Student Record Management System
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

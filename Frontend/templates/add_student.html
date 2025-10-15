@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h2 class="mb-4 text-center">➕ Add New Student</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter name" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input type="text" name="phone" class="form-control" placeholder="Enter phone number" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Course</label>
+                <input type="text" name="course" class="form-control" placeholder="Enter course" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Date Joined</label>
+                <input type="date" name="date_joined" class="form-control" required>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-4">Submit</button>
+                <a href="{% url 'student_list' %}" class="btn btn-secondary px-4 ms-2">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
